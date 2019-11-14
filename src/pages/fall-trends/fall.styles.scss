@@ -12,5 +12,13 @@
         color: white;    
     }
 
+    button {
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 12px;
+    }
+
     transition: all;
 }

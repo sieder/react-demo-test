@@ -10,7 +10,7 @@ const FallPage = () => {
         transition: 'all 1s ease-out'
     }
     const toggleShowMore = () => {
-        width > 170 ? setWidth(170) : setWidth(300)
+        width > 170 ? setWidth(170) : setWidth(340)
         setTimeout(() => {
             showMore ? setShowMore(false) : setShowMore(true)
         }, 1000)

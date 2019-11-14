@@ -8,6 +8,7 @@ const Collaborators = props => {
     )
     return (
         <div className="collab-container">
+        <h6>COLLABORATORS</h6>
             {listCollabArray}
         </div>
     )

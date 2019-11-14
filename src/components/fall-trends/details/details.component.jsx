@@ -28,8 +28,8 @@ const FallDetails = ({ setShowMore }) => {
             <h6>TAGS</h6>
             <Tags tagsArray={dummyTags} />
             
-            <h6>COLLABORATORS</h6>
             <Collaborators collabArray={dummyCollborators} />
+            <br />
             <button onClick={_hide}>hide</button>
         </div>
     )

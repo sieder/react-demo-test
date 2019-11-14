@@ -8,6 +8,7 @@ const Tags = props => {
     )
     return (
         <div >
+            <h6>TAGS</h6>
             {listTagsArray}
         </div>
     )
