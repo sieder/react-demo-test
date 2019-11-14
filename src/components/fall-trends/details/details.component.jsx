@@ -24,12 +24,9 @@ const FallDetails = ({ setShowMore }) => {
             <p>the latest trends for Woman for next fall will be</p>
             <p>represented in this collection and will be available in</p>
             <p>all markets.</p>
-
-            <h6>TAGS</h6>
-            <Tags tagsArray={dummyTags} />
             
+            <Tags tagsArray={dummyTags} />
             <Collaborators collabArray={dummyCollborators} />
-            <br />
             <button onClick={_hide}>hide</button>
         </div>
     )
