@@ -1,16 +1,21 @@
 import React from 'react'
-import { TagsContainer, TagsWrapper, SubTitle } from './tags.styled.component'
+import { TagsContainer, TagsWrapper, SubTitle, TagsGroup } from './tags.styled.component'
+import { Transition } from 'react-spring/renderprops'
 
 const Tags = props => {
-    const tagsArray = props.tagsArray
-    const listTagsArray = tagsArray.map((tag, index) =>
-    
-        <TagsWrapper key={index}>{tag}</TagsWrapper>
-    )
+    const items = props.tagsArray
     return (
         <TagsContainer>
             <SubTitle>TAGS</SubTitle>
-            {listTagsArray}
+            <TagsGroup>
+                <Transition
+                    items={items} keys={item => item}
+                    from={{ transform: 'translate3d(-100px, 0, 0)' }}
+                    enter={{ transform: 'translate3d(0,0px,0)' }}
+                    leave={{ transform: 'translate3d(0,0,-100px)' }}>
+                    {item => props => <TagsWrapper style={{...props}}>{item}</TagsWrapper>}
+                </Transition>  
+            </TagsGroup>
         </TagsContainer>
     )
 }

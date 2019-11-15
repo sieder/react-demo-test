@@ -38,6 +38,8 @@ export const CustomButton = styled.button`
     border: none;
     width: 60px;
     height: 30px;
+
+    margin-left: 320px;
 `
 export const FallMenuWrapper = styled.div`
     padding-top: ${props => props.paddingTop}px;   
