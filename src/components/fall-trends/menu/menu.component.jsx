@@ -1,7 +1,6 @@
 import React from 'react'
 import { Tabs } from 'antd';
 import 'antd/dist/antd.css';
-import './menu.styles.scss'
 
 const FallMenu = () => {
     function callback(key) {

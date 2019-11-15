@@ -3,8 +3,8 @@ import { CollaboratorsContainer, CollaboratorsWrapper, SubTitle } from './collab
 
 const Collaborators = props => {
     const collabArray = props.collabArray
-    const listCollabArray = collabArray.map((person) =>
-        <CollaboratorsWrapper>{person}</CollaboratorsWrapper>
+    const listCollabArray = collabArray.map((person, index) =>
+        <CollaboratorsWrapper key={index}>{person}</CollaboratorsWrapper>
     )
     return (
         <CollaboratorsContainer>
