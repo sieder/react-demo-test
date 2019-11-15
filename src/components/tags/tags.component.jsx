@@ -1,16 +1,16 @@
 import React from 'react'
-import './tags.styles.scss'
+import { TagsContainer, TagsWrapper, SubTitle } from './tags.styled.component'
 
 const Tags = props => {
     const tagsArray = props.tagsArray
     const listTagsArray = tagsArray.map((tag) =>
-        <span className="tagsContainer">{tag}</span>
+        <TagsWrapper>{tag}</TagsWrapper>
     )
     return (
-        <div >
-            <h6>TAGS</h6>
+        <TagsContainer>
+            <SubTitle>TAGS</SubTitle>
             {listTagsArray}
-        </div>
+        </TagsContainer>
     )
 }
 

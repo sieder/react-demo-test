@@ -1,16 +1,16 @@
 import React from 'react'
-import './collaborators.styles.scss'
+import { CollaboratorsContainer, CollaboratorsWrapper, SubTitle } from './collaboratos.styled.components'
 
 const Collaborators = props => {
     const collabArray = props.collabArray
     const listCollabArray = collabArray.map((person) =>
-        <span>{person}</span>
+        <CollaboratorsWrapper>{person}</CollaboratorsWrapper>
     )
     return (
-        <div className="collab-container">
-        <h6>COLLABORATORS</h6>
+        <CollaboratorsContainer>
+        <SubTitle>COLLABORATORS</SubTitle>
             {listCollabArray}
-        </div>
+        </CollaboratorsContainer>
     )
 }
 

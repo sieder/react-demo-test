@@ -1,34 +1,33 @@
-import React, { useEffect, useState, useCallback, useReducer } from 'react'
+import React from 'react'
 import Tags from '../../tags/tags.component'
 import Collaborators from '../collaborators/collaborators.component'
-import './details.styles.scss'
-import { Col } from 'antd'
+import { DetailsContainer, Text, HideButton } from './details.styled.component'
 
-const FallDetails = ({ setShowMore }) => {
+const FallDetails = ({ setShowMore, showMore, opacity, setOpacity, animateStyle, state }) => {
     const dummyTags = ['Fall', 'Summer', '2018', 'Season', 'New Trends']
-    const dummyCollborators = [1, 2, 3, 4, 5, 6, 7 ,8]
-    const [opacity, setOpacity] = useState(1)
-    useEffect(() => {
-        (async () => {
-            opacity === 0 && setShowMore(0)
-        })()
-    }, [opacity])
-    const _hide = async () => {
-        setOpacity(0)
+    const dummyCollborators = [11, 12, 13, 14, 15, 16, 17, 18]
+
+    const toggleAnimation = () => {
+        opacity > 1 ? setOpacity(1) : setOpacity(0)
+        setTimeout(() => {
+            showMore ? setShowMore(false) : setShowMore(true)
+        }, 1000)
     }
-    const animateStyle = {
-        transition: 'all .40s ease-out'
+    const _hide = () => {
+        toggleAnimation()
+        showMore ? setShowMore(false) : setShowMore(true)
     }
     return (
-        <div className="details-container" style={{ ...animateStyle, opacity }}>
-            <p>the latest trends for Woman for next fall will be</p>
-            <p>represented in this collection and will be available in</p>
-            <p>all markets.</p>
-            
-            <Tags tagsArray={dummyTags} />
-            <Collaborators collabArray={dummyCollborators} />
-            <button onClick={_hide}>hide</button>
-        </div>
+        <DetailsContainer state={state} style={{ ...animateStyle }}>
+            <Text opacity={opacity} style={{ ...animateStyle }}>
+                the latest trends for Woman for next fall will be<br />
+                represented in this collection and will be available in<br />
+                all markets.
+            </Text>
+            <Tags opacity={opacity} tagsArray={dummyTags} style={{ ...animateStyle }}/>
+            <Collaborators opacity={opacity} collabArray={dummyCollborators} style={{ ...animateStyle }}/>
+            <HideButton onClick={_hide}>hide</HideButton>
+        </DetailsContainer>
     )
 }
 
