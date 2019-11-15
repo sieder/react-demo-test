@@ -8,7 +8,6 @@ export const DetailsContainer = Styled.div`
 
     position: absolute;
     opacity: ${({ state }) => (state === "entering" ? 0 : 1 )};
-    /* display: ${({ state }) => (state === "exiting" ? "none" : "block")}; */
 `
 export const Text = Styled.div`
     opacity: ${props => props.opacity};
