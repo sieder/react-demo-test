@@ -7,14 +7,6 @@ export const CollaboratorsGroup = Styled.div`
     display: flex;
     flex-direction: row;
 `
-export const CollaboratorsWrapper = Styled.div`
-    /* background: #826D9E; */
-
-    /* border-radius: 50%; */
-
-    /* padding: 10px 10px 10px 10px; */
-    
-`
 export const ImageContainer = Styled.img`
     border: white 1px solid;
 
@@ -30,9 +22,6 @@ export const MoreButton = Styled.button`
     border-radius: 50%;
     width: 60px;
     height: 60px;
-
-    /* position: relative; */
-    /* margin-left: 400px; */
 `
 export const SubTitle = Styled.h4`
     color: white;

@@ -6,10 +6,11 @@ import { useTransition, animated } from 'react-spring'
 const Collaborators = ({ collabArray }) => {
     const [showItems, setShowItems] = useState(6)
     const [toggleItems, setToggleItems] = useState(false)
-    const [moreButtonMargin, setMoreButtonMargin] = useState(396)
+    const [moreButtonMargin, setMoreButtonMargin] = useState(396) // 396/6 = 66 #66 per image
+    const [moreButtonFromTransition, setMoreButtonFromTransition] = useState(-100)
     const transitions = useTransition(toggleItems, null, {
-        from: {  position: 'absolute', transform: 'translate3d(-100px, 0, 0)', opacity: 0 },
-        enter: { marginLeft: moreButtonMargin, transform: 'translate3d(0,0px,0)', opacity: 1 }, // 396/6 = 66 #66 per image
+        from: {  position: 'absolute', transform: `translate3d(${moreButtonFromTransition}px, 0, 0)`, opacity: 0 },
+        enter: { marginLeft: moreButtonMargin, transform: 'translate3d(0,0px,0)', opacity: 1 }, 
         leave: { transform: 'translate3d( 0,0,100px)', opacity: 0 },
     })
     const _toggleItems = () => {
@@ -18,10 +19,12 @@ const Collaborators = ({ collabArray }) => {
             setShowItems(6)
             setToggleItems(false)
             setMoreButtonMargin(396)
+            setMoreButtonFromTransition(100)
         } else {
             setShowItems(collabArray.length)
             setToggleItems(true)
-            setMoreButtonMargin(collabArray.length*66)
+            setMoreButtonMargin(collabArray.length*66) 
+            setMoreButtonFromTransition(-100)
         }
     }
     return (
