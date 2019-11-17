@@ -15,7 +15,6 @@ export const TagsWrapper = Styled.div`
     padding: 10px 20px 10px 20px;
     margin-left: 5px;
 `
-
 export const SubTitle = Styled.h4`
     color: white;
 

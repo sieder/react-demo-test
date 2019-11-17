@@ -2,14 +2,12 @@ import React from 'react'
 import Tags from '../../tags/tags.component'
 import Collaborators from '../collaborators/collaborators.component'
 import { DetailsContainer, Text, HideButton } from './details.styled.component'
+import Faker from 'faker'
 
 const FallDetails = ({ setShowMore, showMore }) => {
     const dummyTags = ['Fall', 'Summer', '2018', 'Season', 'New Trends']
-    const dummyCollborators = [11, 12, 13, 14, 15, 16, 17, 18]
-
-    const _hide = () => {
-        showMore ? setShowMore(false) : setShowMore(true)
-    }
+    const dummyCollborators = Array.from({length:9}, _=>Faker.internet.avatar())
+    const _hide = () => showMore ? setShowMore(false) : setShowMore(true)
     return (
         <DetailsContainer >
             <Text>
