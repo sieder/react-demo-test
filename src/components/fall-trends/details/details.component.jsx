@@ -7,7 +7,7 @@ import Faker from 'faker'
 const FallDetails = ({ setShowMore, showMore }) => {
     const dummyTags = ['Fall', 'Summer', '2018', 'Season', 'New Trends']
     const dummyCollborators = Array.from({length:9}, _=>Faker.internet.avatar())
-    const _hide = () => showMore ? setShowMore(false) : setShowMore(true)
+    const onClickHide = () => showMore ? setShowMore(false) : setShowMore(true)
     return (
         <DetailsContainer >
             <Text>
@@ -17,7 +17,7 @@ const FallDetails = ({ setShowMore, showMore }) => {
             </Text>
             <Tags tagsArray={dummyTags}/>
             <Collaborators collabArray={dummyCollborators}/>
-            <HideButton onClick={_hide}>hide</HideButton>
+            <HideButton onClick={onClickHide}>hide</HideButton>
         </DetailsContainer>
     )
 }

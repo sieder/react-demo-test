@@ -9,11 +9,11 @@ const Collaborators = ({ collabArray }) => {
     const [moreButtonMargin, setMoreButtonMargin] = useState(396) // 396/6 = 66 #66 per image
     const [moreButtonFromTransition, setMoreButtonFromTransition] = useState(-100)
     const transitions = useTransition(toggleItems, null, {
-        from: {  position: 'absolute', transform: `translate3d(${moreButtonFromTransition}px, 0, 0)`, opacity: 0 },
-        enter: { marginLeft: moreButtonMargin, transform: 'translate3d(0,0px,0)', opacity: 1 }, 
+        from: { position: 'absolute', transform: `translate3d(${moreButtonFromTransition}px, 0, 0)`, opacity: 0 },
+        enter: { marginLeft: moreButtonMargin, transform: 'translate3d(0,0px,0)', opacity: 1 },
         leave: { transform: 'translate3d( 0,0,100px)', opacity: 0 },
     })
-    const _toggleItems = () => {
+    const onClickToggleItems = () => {
         console.log(toggleItems)
         if (toggleItems) {
             setShowItems(6)
@@ -23,7 +23,7 @@ const Collaborators = ({ collabArray }) => {
         } else {
             setShowItems(collabArray.length)
             setToggleItems(true)
-            setMoreButtonMargin(collabArray.length*66) 
+            setMoreButtonMargin(collabArray.length * 66)
             setMoreButtonFromTransition(-100)
         }
     }
@@ -35,16 +35,16 @@ const Collaborators = ({ collabArray }) => {
                     items={collabArray.slice(0, showItems)} keys={(item, index) => index}
                     from={{ transform: 'translate3d(-100px, 0, 0)', opacity: 0 }}
                     enter={{ transform: 'translate3d(0,0px,0)', opacity: 1 }}
-                    leave={{ transform: 'translate3d( 0,0,0)', opacity: 0 }}>
+                    leave={{ transform: 'translate3d( 0,0,0)', opacity: 0 }}
+                >
                     {(item, index) => props =>
-                        <ImageContainer style={{ ...props, 'transitionDelay': `${index * 500}ms` }} src={item} />
+                        <ImageContainer style={{ ...props }} src={item} alt="Profile photo" />
                     }
-                    
                 </Transition>
-                {transitions.map(({ item, key, props }) => 
+                {transitions.map(({ item, key, props }) =>
                     item
-                        ? <animated.div key={key} style={{ ...props }}><MoreButton onClick={_toggleItems}>less</MoreButton></animated.div>
-                        : <animated.div key={key} style={{ ...props }}><MoreButton onClick={_toggleItems}>{collabArray.length - showItems}+</MoreButton></animated.div>
+                        ? <animated.div key={key} style={{ ...props }}><MoreButton onClick={onClickToggleItems}>less</MoreButton></animated.div>
+                        : <animated.div key={key} style={{ ...props }}><MoreButton onClick={onClickToggleItems}>{collabArray.length - showItems}+</MoreButton></animated.div>
                 )}
             </CollaboratorsGroup>
         </CollaboratorsContainer>

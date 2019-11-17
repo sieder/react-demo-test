@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import FallDetails from '../../components/fall-trends/details/details.component'
 import FallMenu from '../../components/fall-trends/menu/menu.component'
 import { animated, useTransition } from 'react-spring'
-
 import { FallContainer, FallHeader, FallMenuWrapper, Title, CustomButton } from './fall.styled.component'
 
 const FallPage = () => {
@@ -26,7 +25,7 @@ const FallPage = () => {
             showMore ? setShowMore(false) : setShowMore(true)
         }, 100)
     }
-    const _showMore = () => {
+    const onClickShowMore = () => {
         toggleAnimation()
     }
     const fallDetailsWithTransition = () => (
@@ -43,14 +42,12 @@ const FallPage = () => {
                 {transitions.map(({ item, key, props }) =>
                     item
                         ? <animated.div key={key} style={{ ...props }}>{fallDetailsWithTransition()}</animated.div>
-                        : <animated.div key={key} style={{ ...props }}><CustomButton onClick={_showMore}>More</CustomButton></animated.div>
+                        : <animated.div key={key} style={{ ...props }}><CustomButton onClick={onClickShowMore}>More</CustomButton></animated.div>
                 )}
             </FallHeader>
-
-            <FallMenuWrapper paddingTop={paddingTop} style={{ ...animateStyle }} >
+            <FallMenuWrapper paddingTop={paddingTop} style={{ ...animateStyle }}>
                 {!showMore && <FallMenu />}
             </FallMenuWrapper>
-
         </FallContainer>
     )
 }
